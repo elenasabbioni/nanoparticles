@@ -195,6 +195,7 @@ relevant_statesGill <- minnGill:maxxGill
 relevant_statesTau  <- minnTau:maxxTau
 
 
+
 # Scale the states we have found by sqrt(N), such that we obtain a comparable scale when N grows
 scaled_relevant_statesGill <- round(relevant_statesGill / sqrt(N), 1)
 saveGill <- which(scaled_relevant_statesGill <= 2.05)
@@ -247,7 +248,6 @@ scaled_relevant_statesTau_binned <- scaled_relevant_statesTau_binned[saveTau]
 # ------ Approximated process obtained with Tau-Leap -------------
 # ----------------------------------------------------------------
 for(monApp in c(1e+08, 1e+12, 1e+15)){
-  monApp <- 1e+04     # initial number of monomers for the approximated process (13)
   chrMonApp <- format(monApp, scientific = TRUE)
   chrMonApp <- substr(chrMonApp, nchar(chrMonApp)-1, nchar(chrMonApp))
   if(substr(chrMonApp, nchar(chrMonApp)-1, nchar(chrMonApp)-1) == "0"){
@@ -285,6 +285,7 @@ for(monApp in c(1e+08, 1e+12, 1e+15)){
       maxxApp_Tau <- max(c(posintApp, maxxApp_Tau))
   }
   relevant_statesApp_Tau <- minnApp_Tau:maxxApp_Tau
+
   new_relevant_statesApp_Tau <- round(relevant_statesApp_Tau*aApp / sqrt(monApp),3)
 
 
@@ -510,3 +511,7 @@ for(monApp in c(1e+08, 1e+12, 1e+15)){
   # ---------------------------------------------------
 
 }
+
+
+
+

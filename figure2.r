@@ -148,7 +148,6 @@ for (r in 1:rep){
 # Create two vectors of relevant states in the original Gillespie simulation respectively
 relevant_statesGill <- minnGill:maxxGill
 
-
 # Scale the states we have found by sqrt(N), such that we obtain a comparable scale when N grows
 scaled_relevant_statesGill <- round(relevant_statesGill / sqrt(N), 1)
 saveGill <- which(scaled_relevant_statesGill <= 2.05)
@@ -240,4 +239,5 @@ for(r in 1:rep){
 }
 # ------------------------------------------
 # ------------------------------------------
+
 

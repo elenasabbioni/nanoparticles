@@ -59,7 +59,6 @@ textThemeOriginal <- theme(
 
 for(mon in c(1e+4, 1e+6, 1e+8)){
   # Set initial parameters
-  mon <- 1e+4         # initial number of monomers for process (7)
   growth <- 5         # growth rate constant 
   mins <- 3           # number of monomers used during nucleation n in the exact process (7)
 
@@ -153,7 +152,6 @@ for(mon in c(1e+4, 1e+6, 1e+8)){
   relevant_statesGill <- minnGill:maxxGill
 
 
-
   # Scale the states we have found by sqrt(N), such that we obtain a comparable scale when N grows
   scaled_relevant_statesGill <- round(relevant_statesGill / sqrt(N), 1)
   saveGill <- which(scaled_relevant_statesGill <= 2.05)
@@ -207,10 +205,10 @@ for(mon in c(1e+4, 1e+6, 1e+8)){
   }
   # ------------------------------------------
   # ------------------------------------------
-
-
-
-
-
-
 }
+
+
+pdf(paste0(pathOutput, "/Figure1.pdf"), width = 30, height = 15)
+grid.arrange(gillespiePLOT4[[1]], gillespiePLOT4[[2]], gillespiePLOT4[[3]], gillespiePLOT6[[1]], gillespiePLOT6[[2]], gillespiePLOT6[[3]], gillespiePLOT8[[1]], gillespiePLOT8[[2]], gillespiePLOT8[[3]], nrow = 3)
+dev.off()
+
